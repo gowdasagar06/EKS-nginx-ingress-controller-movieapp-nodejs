@@ -1,0 +1,31 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: apps-ingress
+  namespace: apps
+spec:
+  ingressClassName: nginx
+  rules:
+    - http:
+        paths:
+          - path: /bollywood
+            pathType: Prefix
+            backend:
+              service:
+                name: bollywood-app
+                port:
+                  name: svc-port
+          - path: /hollywood
+            pathType: Prefix
+            backend:
+              service: 
+                name: hollywood-app
+                port:
+                  name: svc-port
+          - path: /tollywood
+            pathType: Prefix
+            backend:
+              service:
+                name: tollywood-app
+                port:
+                  name: svc-port                    
